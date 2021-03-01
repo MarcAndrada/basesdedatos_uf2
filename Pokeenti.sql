@@ -1,14 +1,15 @@
+DROP TABLE IF EXISTS pokemon_pokemonsteam;
+DROP TABLE IF EXISTS pokemons_team_stats;
+DROP TABLE IF EXISTS pc_pokemon_pc_stats;
+
+DROP TABLE IF EXISTS pokemon_types;
 DROP TABLE IF EXISTS pokemons;
 DROP TABLE IF EXISTS pokedex;
-DROP TABLE IF EXISTS pokemon_pokemonsteam;
+
 
 DROP TABLE IF EXISTS pokemons_team;
-DROP TABLE IF EXISTS pokemons_team_stats;
 DROP TABLE IF EXISTS stats;
-
 DROP TABLE IF EXISTS types;
-DROP TABLE IF EXISTS pokemon_types;
-DROP TABLE IF EXISTS pc_pokemon_pc_stats;
 
 DROP TABLE IF EXISTS pc_pokemon;
 DROP TABLE IF EXISTS pc_stats;
