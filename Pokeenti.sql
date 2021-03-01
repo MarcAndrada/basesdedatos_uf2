@@ -21,7 +21,7 @@ CREATE TABLE pokemons(
 );
 CREATE TABLE types(
     id_type INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `type` VARCHAR(24) NOT NULL
+    `type` CHAR NOT NULL
 );
 
 CREATE TABLE pokemon_types(
@@ -103,10 +103,24 @@ CREATE TABLE pc_stats(
 
 CREATE TABLE pc_pokemon_pc_stats (
 	id_pc_pokemon_pc_stats INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    type VARCHAR(24) NOT NULL
+    id_pc_pokemon INT UNSIGNED NOT NULL,
+    id_pc_stats INT UNSIGNED NOT NULL,
+    FOREIGN KEY (id_pc_pokemon) REFERENCES pc_pokemon (id_pc_pokemon),
+    FOREIGN KEY (id_pc_stats) REFERENCES pc_stats (id_pc_stats)
 );
 
 CREATE TABLE pokedex_pc_pokemon (
 	id_pokedex_pc_pokemon INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	id_pokedex INT UNSIGNED, 
-	id_pc_pokemon
+	id_pc_pokemon INT UNSIGNED,
+    FOREIGN KEY (id_pokedex) REFERENCES pokedex (id_pokedex),
+    FOREIGN KEY (id_pc_pokemon) REFERENCES pc_pokemon (id_pc_pokemon)
+);
+
+CREATE TABLE pokemon_pokedex(
+    id_pokemon_pokedex INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id_pokemon INT UNSIGNED NOT NULL,
+    id_pokedex INT UNSIGNED NOT NULL,
+    FOREIGN KEY (id_pokemon) REFERENCES pokemons (id_pokemon),
+    FOREIGN KEY (id_pokedex) REFERENCES pokedex (id_pokedex)
+);
