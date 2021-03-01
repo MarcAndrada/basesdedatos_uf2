@@ -40,8 +40,7 @@ CREATE TABLE pokedex(
 	own BOOLEAN NOT NULL,
 	sprite VARCHAR(32) NOT NULL,
 	next_evolution CHAR NULL,
-	evolution_level INT NULL,
-	FOREIGN KEY (pokemon) REFERENCES pokemons(pokemon)
+	evolution_level INT NULL
 );
 
 CREATE TABLE pokemons_team(
@@ -56,7 +55,7 @@ CREATE TABLE pokemon_pokemonsteam(
     id_pokemon INT UNSIGNED NOT NULL,
     id_pokemonteam INT UNSIGNED NOT NULL,
     FOREIGN KEY (id_pokemon) REFERENCES pokemons (id_pokemon),
-    FOREIGN KEY (id_pokemonteam) REFERENCES pokemon_team (id_pokemon_team)
+    FOREIGN KEY (id_pokemonteam) REFERENCES pokemons_team (id_pokemon_team)
 );
 
 
