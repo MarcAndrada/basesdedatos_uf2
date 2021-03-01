@@ -84,37 +84,35 @@ CREATE TABLE pc_pokemon(
 	id_pc_pokemon INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	pokemon CHAR NOT NULL,
 	nickname VARCHAR(24) NULL,
-	sprite VARCHAR(32) NOT NULL,
-	FOREIGN KEY (pokemon) REFERENCES pokedex (pokemons),
-
+	sprite VARCHAR(32) NOT NULL
 );
 CREATE TABLE pc_stats(
 	id_pc_stats INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    hp INT NOT NULL,
-    attack INT NOT NULL,
-    special_attack INT NOT NULL,
-    defense INT NOT NULL,
-    special_defense INT NOT NULL,
-    speed INT NOT NULL,
-    `precision` INT NOT NULL,
-    `level` INT NOT NULL,
-    xp INT NOT NULL
+	hp INT NOT NULL,
+	attack INT NOT NULL,
+	special_attack INT NOT NULL,
+	defense INT NOT NULL,
+	special_defense INT NOT NULL,
+	speed INT NOT NULL,
+	`precision` INT NOT NULL,
+	`level` INT NOT NULL,
+	xp INT NOT NULL
 );
 
 CREATE TABLE pc_pokemon_pc_stats (
 	id_pc_pokemon_pc_stats INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    id_pc_pokemon INT UNSIGNED NOT NULL,
-    id_pc_stats INT UNSIGNED NOT NULL,
-    FOREIGN KEY (id_pc_pokemon) REFERENCES pc_pokemon (id_pc_pokemon),
-    FOREIGN KEY (id_pc_stats) REFERENCES pc_stats (id_pc_stats)
+   	id_pc_pokemon INT UNSIGNED NOT NULL,
+   	id_pc_stats INT UNSIGNED NOT NULL,
+ 	FOREIGN KEY (id_pc_pokemon) REFERENCES pc_pokemon (id_pc_pokemon),
+  	FOREIGN KEY (id_pc_stats) REFERENCES pc_stats (id_pc_stats)
 );
 
 CREATE TABLE pokedex_pc_pokemon (
 	id_pokedex_pc_pokemon INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	id_pokedex INT UNSIGNED, 
 	id_pc_pokemon INT UNSIGNED,
-    FOREIGN KEY (id_pokedex) REFERENCES pokedex (id_pokedex),
-    FOREIGN KEY (id_pc_pokemon) REFERENCES pc_pokemon (id_pc_pokemon)
+    	FOREIGN KEY (id_pokedex) REFERENCES pokedex (id_pokedex),
+    	FOREIGN KEY (id_pc_pokemon) REFERENCES pc_pokemon (id_pc_pokemon)
 );
 
 CREATE TABLE pokemon_pokedex(
