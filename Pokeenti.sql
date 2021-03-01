@@ -37,12 +37,11 @@ CREATE TABLE pokedex(
 	n_list INT NOT NULL,
 	`description` INT NOT NULL,
 	seen BOOLEAN NOT NULL,
-    own BOOLEAN NOT NULL,
-    sprite VARCHAR(32) NOT NULL,
+	own BOOLEAN NOT NULL,
+	sprite VARCHAR(32) NOT NULL,
 	next_evolution CHAR NULL,
-    evolution_level INT NULL,
+	evolution_level INT NULL,
 	FOREIGN KEY (pokemon) REFERENCES pokemons(pokemon),
-    FOREIGN KEY (next_evolution) REFERENCES pokemons(pokemon)
 );
 
 CREATE TABLE pokemons_team(
