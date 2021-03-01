@@ -2,15 +2,15 @@ DROP TABLE IF EXISTS pokemon_pokemonsteam;
 DROP TABLE IF EXISTS pokemons_team_stats;
 DROP TABLE IF EXISTS pc_pokemon_pc_stats;
 
+DROP TABLE IF EXISTS pokedex_pc_pokemon
 DROP TABLE IF EXISTS pokemon_types;
 DROP TABLE IF EXISTS pokemons;
+
 DROP TABLE IF EXISTS pokedex;
-
-
 DROP TABLE IF EXISTS pokemons_team;
 DROP TABLE IF EXISTS stats;
-DROP TABLE IF EXISTS types;
 
+DROP TABLE IF EXISTS types;
 DROP TABLE IF EXISTS pc_pokemon;
 DROP TABLE IF EXISTS pc_stats;
 
@@ -34,15 +34,14 @@ CREATE TABLE pokemon_types(
 
 CREATE TABLE pokedex(
 	id_pokedex INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	pokemon INT NOT NULL,
 	n_list INT NOT NULL,
-	`description` INT NOT NULL,
+	`description` TEXT NOT NULL,
 	seen BOOLEAN NOT NULL,
 	own BOOLEAN NOT NULL,
 	sprite VARCHAR(32) NOT NULL,
 	next_evolution CHAR NULL,
 	evolution_level INT NULL,
-	FOREIGN KEY (pokemon) REFERENCES pokemons(pokemon),
+	FOREIGN KEY (pokemon) REFERENCES pokemons(pokemon)
 );
 
 CREATE TABLE pokemons_team(
@@ -83,12 +82,10 @@ CREATE TABLE pokemons_team_stats(
 );
 CREATE TABLE pc_pokemon(
 	id_pc_pokemon INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    pokemon CHAR NOT NULL,
+	pokemon CHAR NOT NULL,
 	nickname VARCHAR(24) NULL,
-    sprite VARCHAR(32) NOT NULL,
-    n_pokedex_list INT NOT NULL,
-    FOREIGN KEY (pokemon) REFERENCES pokedex (pokemons),
-    FOREIGN KEY n_pokedex_list REFERENCES pokedex (n_list)
+	sprite VARCHAR(32) NOT NULL,
+	FOREIGN KEY (pokemon) REFERENCES pokedex (pokemons),
 
 );
 CREATE TABLE pc_stats(
@@ -108,3 +105,8 @@ CREATE TABLE pc_pokemon_pc_stats (
 	id_pc_pokemon_pc_stats INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     type VARCHAR(24) NOT NULL
 );
+
+CREATE TABLE pokedex_pc_pokemon (
+	id_pokedex_pc_pokemon INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	id_pokedex INT UNSIGNED, 
+	id_pc_pokemon
