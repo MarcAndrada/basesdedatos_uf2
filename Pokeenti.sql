@@ -17,11 +17,11 @@ DROP TABLE IF EXISTS pc_stats;
 
 CREATE TABLE pokemons(
 	id_pokemon INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	pokemon CHAR NOT NULL
+	pokemon VARCHAR(24) NOT NULL
 );
 CREATE TABLE types(
     id_type INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `type` CHAR NOT NULL
+    `type` VARCHAR(24) NOT NULL
 );
 
 CREATE TABLE pokemon_types(
@@ -39,14 +39,14 @@ CREATE TABLE pokedex(
 	seen BOOLEAN NOT NULL,
 	own BOOLEAN NOT NULL,
 	sprite VARCHAR(32) NOT NULL,
-	next_evolution CHAR NULL,
+	next_evolution VARCHAR(24) NULL,
 	evolution_level INT NULL
 );
 
 CREATE TABLE pokemons_team(
     id_pokemon_team INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	nickname VARCHAR(24) NULL,
-    `status` CHAR NULL,
+    `status` VARCHAR(24) NULL,
     sprite VARCHAR(32) NOT NULL
 );
 
@@ -81,7 +81,7 @@ CREATE TABLE pokemons_team_stats(
 );
 CREATE TABLE pc_pokemon(
 	id_pc_pokemon INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	pokemon CHAR NOT NULL,
+	pokemon VARCHAR(24) NOT NULL,
 	nickname VARCHAR(24) NULL,
 	sprite VARCHAR(32) NOT NULL
 );
