@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS pc_pokemon_pc_stats;
 
 DROP TABLE IF EXISTS pokedex_pc_pokemon;
 DROP TABLE IF EXISTS pokemon_types;
+DROP TABLE IF EXISTS pokemon_pokedex;
 DROP TABLE IF EXISTS pokemons;
 
 DROP TABLE IF EXISTS pokedex;
