@@ -27,7 +27,8 @@ CREATE TABLE pokemon_types(
 	id_pokemon_type INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     id_pokemon INT UNSIGNED NOT NULL,
     id_type INT UNSIGNED NOT NULL,
-    FOREIGN KEY (id_weapon_type) REFERENCES weapons_types(id_weapon_type)
+    FOREIGN KEY (id_pokemon) REFERENCES pokemons(id_pokemon),
+    FOREIGN KEY (id_type) REFERENCES types (id_type)
 );
 
 CREATE TABLE pokedex(
@@ -39,7 +40,7 @@ CREATE TABLE pokedex(
     own BOOLEAN NOT NULL,
     sprite VARCHAR(32) NOT NULL,
 	next_evolution CHAR NULL,
-    evolution_level INT NULL
+    evolution_level INT NULL,
 	FOREIGN KEY (pokemon) REFERENCES pokemons(pokemon),
     FOREIGN KEY (next_evolution) REFERENCES pokemons(pokemon)
 );
@@ -76,7 +77,7 @@ CREATE TABLE stats (
 CREATE TABLE pokemons_team_stats(
     id_pokemon_team_stat INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     id_pokemon_team INT UNSIGNED NOT NULL,
-    id_stat INT UNSIGNED NOT NULL
+    id_stat INT UNSIGNED NOT NULL,
     FOREIGN KEY (id_pokemon_team) REFERENCES pokemons_team(id_pokemon_team),
 	FOREIGN KEY (id_stat) REFERENCES stats (id_stats)
 );
